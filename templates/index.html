@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+
+  </style>
+{% endblock %}
+{% block content %}
+  <div class="jumbotron">
+    <h1>CompensaFácil</h1>
+    <p class="lead">Aplicativo para ligar empreendedores que precisam prestar compensasão ambientas a donos de propriedades disponíveis</p>
+    <a class="btn btn-lg btn-primary" href="/empreendedores" role="button">Empreendedores »</a><br/><br/>
+    <a class="btn btn-lg btn-primary" href="/proprietarios" role="button">Proprietários »</a>
+  </div>
+{% endblock %}

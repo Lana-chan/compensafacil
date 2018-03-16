@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block title %}Empreendedores{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .clickable-row:hover {
+      background: #eee;
+      cursor: pointer;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+  <p>
+    Matches encontradas para {{ empr.__str__() }}:
+  </p>
+  <table id="results" data-sorting="true">
+    <thead>
+      <tr>
+        <th>Matrícula</th>
+        <th>Proprietário</th>
+        <th>Área (m²)</th>
+        <th>Bioma</th>
+        <th>Município</th>
+        <th>Prioridade</th>
+        <th>Preço (R$/m²)</th>
+        <th>Custo para {{ number(empr.area) }}m²</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in matches %}
+      <tr>
+        <td>{{ p.matricula }}</td>
+        <td>{{ p.proprietario }}</td>
+        <td data-sort-value={{ int(p.area) }}>{{ number(p.area) }}</td>
+        <td>{{ bioma(p.bioma) }}</td>
+        <td>{{ p.municipio }}</td>
+        <td data-sort-value={{ p.prioridade }}>{{ prioridade(p.prioridade) }}</td>
+        <td data-sort-value={{ int(p.preco) }}>{{ preco(p.preco) }}</td>
+        <td data-sort-value={{ int(empr.custo(p)) }}>R${{ preco(empr.custo(p)) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+{% block footer %}
+  <script>
+    jQuery(function($){
+	    $('#results').footable();
+	    
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+    });
+  </script>
+{% endblock %}

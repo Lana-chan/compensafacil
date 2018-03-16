@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+{% block title %}Empreendedores{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+    .clickable-row:hover {
+      background: #eee;
+      cursor: pointer;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+  <p>
+    Selecione um empreendedor para ver possíveis propriedades para compensação:
+  </p>
+  <table id="results" data-sorting="true">
+    <thead>
+      <tr>
+        <th>nº TCRA/TAC</th>
+        <th>Área (m²)</th>
+        <th>Bioma</th>
+        <th>Município</th>
+        <th>Prioridade</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for e in empr %}
+      <tr class="clickable-row" data-href="/empreendedor/{{ e.tcra }}">
+        <td>{{ e.tcra }}</td>
+        <td data-sort-value={{ int(e.area) }}>{{ number(e.area) }}</td>
+        <td>{{ bioma(e.bioma) }}</td>
+        <td>{{ e.municipio }}</td>
+        <td data-sort-value={{ e.prioridade }}>{{ prioridade(e.prioridade) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+{% block footer %}
+  <script>
+    jQuery(function($){
+	    $('#results').footable();
+	    
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+    });
+  </script>
+{% endblock %}

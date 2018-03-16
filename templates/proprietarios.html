@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block title %}Proprietários{% endblock %}
+{% block head %}
+  {{ super() }}
+  <style type="text/css">
+
+  </style>
+{% endblock %}
+{% block content %}
+  <p>
+    Lista de proprietários atualmente cadastrados no sistema:
+  </p>
+  <table id="results" data-sorting="true">
+    <thead>
+      <tr>
+        <th>Matrícula</th>
+        <th>Proprietário</th>
+        <th>Área (m²)</th>
+        <th>Bioma</th>
+        <th>Município</th>
+        <th>Prioridade</th>
+        <th>Preço (R$/m²)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in propri %}
+      <tr>
+        <td>{{ p.matricula }}</td>
+        <td>{{ p.proprietario }}</td>
+        <td data-sort-value={{ int(p.area) }}>{{ number(p.area) }}</td>
+        <td>{{ bioma(p.bioma) }}</td>
+        <td>{{ p.municipio }}</td>
+        <td data-sort-value={{ p.prioridade }}>{{ prioridade(p.prioridade) }}</td>
+        <td data-sort-value={{ int(p.preco) }}>{{ preco(p.preco) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+{% block footer %}
+  <script>
+    jQuery(function($){
+	    $('#results').footable();
+	    
+      $(".clickable-row").click(function() {
+          window.location = $(this).data("href");
+      });
+    });
+  </script>
+{% endblock %}
