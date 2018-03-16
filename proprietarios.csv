@@ -1,22 +1,21 @@
-"Nº Matrícula","Proprietário","Município","Prioridade","Bioma","Área disponível (m²)","R$/m²"
-1000,"Michal Jackson","Adamantina","Média","Mata Atlântica",1000,28
-1001,"Fred Gruger","Adolfo","Média","Cerrado",2000,31
-1002,"Heineken","Aguaí","Baixa","Mata Atlântica",500,24
-1003,"Clovis","Águas da Prata","Média","Mata Atlântica",1000,23
-1004,"Roberto","Águas de Lindóia","Baixa","Mata Atlântica",1000,20
-1005,"Amanda","Águas de Sta Bárbara","Média","Cerrado",2000,17
-1006,"Erin","Águas de Sõa Pedro","Muito alta","Mata Atlântica",500,15
-1007,"Juliana","Agudos","Média","Mata Atlântica",1000,17
-1008,"Felipe","Alambari","Muito alta","Mata Atlântica",1000,25
-1009,"Caio","Alfredo Marcondes","Média","Mata Atlântica",2000,26
-1010,"João","Altair","alta","Cerrado",500,34
-1011,"Ucha","Altinópolis","Média","Mata Atlântica",1000,31
-1012,"Chris","Alto Alegre","alta","Mata Atlântica",1000,14
-1013,"Mayra","Alumínio","Média","Cerrado",2000,21
-1014,"Mariana","Álvares Florence","Baixa","Mata Atlântica",500,32
-1015,"Flávia","Álvares Mahado","Média","Mata Atlântica",1000,26
-1016,"Joaquina","Álvaro de Carvalho","Muito alta","Cerrado",1000,20
-1017,"Maria","Alvinlândia","alta","Mata Atlântica",2000,31
-1018,"Mirian","Americana","Média","Mata Atlântica",500,16
-1019,"Leandro","Américo Brasiliense","Muito alta","Cerrado",1000,33
-1020,"Leonardo","Américo de Campos","Muito alta","Mata Atlântica",500,30
+"Nº Matrícula","Proprietário","Município","Prioridade","Bioma","Área disponível (m²)","R$/m²","Lat","Long"
+1000,"Michal Jackson","Adamantina","Média","Mata Atlântica",1000,28,"-21.739997°","-51.176200°"
+1001,"Fred Gruger","Adolfo","Média","Cerrado",2000,31,"-21.243560°","-49.686537°"
+1002,"Heineken","Aguaí","Baixa","Mata Atlântica",500,24,"-22.065201°","-47.039376°"
+1003,"Clovis","Águas da Prata","Média","Mata Atlântica",1000,23,"-21.956250°","-46.698377°"
+1004,"Dax","Águas de Lindóia","Baixa","Mata Atlântica",1000,20,"-22.451944°","-46.639035°"
+1005,"Amanda","Águas de Sta Bárbara","Média","Cerrado",2000,17,"-22.886782°","-49.324167°"
+1006,"Erin","Águas de Sõa Pedro","Muito alta","Mata Atlântica",500,15,"-22.650312°","-48.066464°"
+1007,"Juliana","Agudos","Média","Mata Atlântica",1000,17,"-22.490064°","-48.829496°"
+1008,"Felipe","Alambari","Muito alta","Mata Atlântica",1000,25,"-23.572005°","-47.814246°"
+1009,"Caio","Alfredo Marcondes","Média","Mata Atlântica",2000,26,"-21.941779°","-51.400750°"
+1010,"João Brasil","Altair","alta","Cerrado",500,34,"-20.423889°","-48.960922°"
+1011,"Ucha","Altinópolis","Média","Mata Atlântica",1000,31,"-20.981982°","-47.450151°"
+1012,"Chris","Alto Alegre","alta","Mata Atlântica",1000,14,"-21.639884°","-50.206568°"
+1013,"Bia","Analândia","Média","Cerrado",2000,21,"-22.111218°","-47.686893°"
+1014,"Ana Lucia Spinola","Álvares Florence","Baixa","Mata Atlântica",500,32,"-20.283311°","-49.929096°"
+1015,"Evelyn","Álvares Machado","Média","Mata Atlântica",1000,26,"-22.154195°","-51.563061°"
+1016,"Arnd","Álvaro de Carvalho","Muito alta","Cerrado",1000,20,"-22.088699°","-49.766765°"
+1017,"Andre Braga","Alvinlândia","alta","Mata Atlântica",2000,31,"-22.471612°","-49.798397°"
+1018,"Volnei","Americana","Média","Mata Atlântica",500,16,"-22.719755°","-47.237665°"
+1019,"Leandro","Américo Brasiliense","Muito alta","Cerrado",1000,33,"-21.705776°","-48.052134°"

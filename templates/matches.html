@@ -29,7 +29,7 @@
     </thead>
     <tbody>
       {% for p in matches %}
-      <tr>
+      <tr class="clickable-row" onclick="openMap({{p.latitude}},{{p.longitude}});">
         <td>{{ p.matricula }}</td>
         <td>{{ p.proprietario }}</td>
         <td data-sort-value={{ int(p.area) }}>{{ number(p.area) }}</td>
@@ -41,16 +41,22 @@
       </tr>
       {% endfor %}
     </tbody>
-  </table>
+  </table><br/>
+  <p>
+    Clique em uma propriedade para visualizar no mapa abaixo:
+  </p>
+  <center><iframe width="700" height="500" frameborder="0" style="border:0" id="map"></iframe></center>
 {% endblock %}
 {% block footer %}
   <script>
     jQuery(function($){
 	    $('#results').footable();
 	    
-      $(".clickable-row").click(function() {
-          window.location = $(this).data("href");
-      });
+      openMap = function(lat, lon) {
+        var url = "https://www.google.com/maps/embed/v1/place?q="+lat+","+lon+"&zoom=16&maptype=satellite&key={{ cfg['maps_api_key'] }}";
+        $('#map').attr('src', url);
+        console.log(url);
+      }
     });
   </script>
 {% endblock %}

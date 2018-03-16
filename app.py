@@ -1,7 +1,11 @@
 from flask import Flask, render_template, url_for
 import matcher
 import locale
+import json
 app = Flask(__name__)
+
+with open('config.json') as json_data_file:
+    cfg = json.load(json_data_file)
 
 locale.setlocale(locale.LC_ALL, 'pt_BR.utf8')
 empreendedores = matcher.Empreendedor.load_from_csv('empreendedores.csv')
@@ -18,7 +22,7 @@ def pag_empre():
 @app.route('/empreendedor/<tcra>')
 def matches_empre(tcra):
   empr = next((x for x in empreendedores if x.tcra == tcra), None)
-  return render_template('matches.html', empr=empr, matches=empr.find_matches(proprietarios))
+  return render_template('matches.html', empr=empr, matches=empr.find_matches(proprietarios), cfg=cfg)
 
 @app.route('/proprietarios')
 def pag_propri():

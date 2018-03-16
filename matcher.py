@@ -68,6 +68,8 @@ class Proprietario:
         item.municipio = row["Município"]
         item.proprietario = row["Proprietário"]
         item.preco = float(row["R$/m²"])
+        item.latitude = float(row["Lat"][:-1])
+        item.longitude = float(row["Long"][:-1])
         entradas.append(item)
     return entradas
     
