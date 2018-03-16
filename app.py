@@ -26,7 +26,7 @@ def matches_empre(tcra):
 
 @app.route('/proprietarios')
 def pag_propri():
-  return render_template('proprietarios.html', propri=proprietarios)
+  return render_template('proprietarios.html', propri=proprietarios, cfg=cfg)
 
   
 @app.context_processor

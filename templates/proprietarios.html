@@ -3,11 +3,14 @@
 {% block head %}
   {{ super() }}
   <style type="text/css">
-
+    .clickable-row:hover {
+      background: #eee;
+      cursor: pointer;
+    }
   </style>
 {% endblock %}
 {% block content %}
-  <a href="#" onclick="window.history.back()"><h4><span class="glyphicon glyphicon-menu-left"></span> Voltar</h4></a>
+  <a href="/"><h4><span class="glyphicon glyphicon-menu-left"></span> Voltar</h4></a>
   <p>
     Lista de proprietários atualmente cadastrados no sistema:
   </p>
@@ -25,7 +28,7 @@
     </thead>
     <tbody>
       {% for p in propri %}
-      <tr>
+      <tr class="clickable-row" onclick="openMap({{p.latitude}},{{p.longitude}});">
         <td>{{ p.matricula }}</td>
         <td>{{ p.proprietario }}</td>
         <td data-sort-value={{ int(p.area) }}>{{ number(p.area) }}</td>
@@ -36,16 +39,22 @@
       </tr>
       {% endfor %}
     </tbody>
-  </table>
+  </table><br/>
+  <p>
+    Clique em uma propriedade para visualizar no mapa abaixo:
+  </p>
+  <center><iframe width="700" height="500" frameborder="0" style="border:0" id="map"></iframe></center>
 {% endblock %}
 {% block footer %}
   <script>
     jQuery(function($){
 	    $('#results').footable();
-	    
-      $(".clickable-row").click(function() {
-          window.location = $(this).data("href");
-      });
     });
+    
+    openMap = function(lat, lon) {
+      var url = "https://www.google.com/maps/embed/v1/place?q="+lat+","+lon+"&zoom=16&maptype=satellite&key={{ cfg['maps_api_key'] }}";
+      $('#map').attr('src', url);
+      $('html,body').animate({scrollTop: $('#map').offset().top},'slow');
+    }
   </script>
 {% endblock %}

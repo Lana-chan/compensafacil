@@ -10,7 +10,7 @@
   </style>
 {% endblock %}
 {% block content %}
-  <a href="#" onclick="window.history.back()"><h4><span class="glyphicon glyphicon-menu-left"></span> Voltar</h4></a>
+  <a href="/empreendedores"><h4><span class="glyphicon glyphicon-menu-left"></span> Voltar</h4></a>
   <p>
     Matches encontradas para {{ empr.__str__() }}:
   </p>
@@ -51,12 +51,12 @@
   <script>
     jQuery(function($){
 	    $('#results').footable();
-	    
-      openMap = function(lat, lon) {
-        var url = "https://www.google.com/maps/embed/v1/place?q="+lat+","+lon+"&zoom=16&maptype=satellite&key={{ cfg['maps_api_key'] }}";
-        $('#map').attr('src', url);
-        console.log(url);
-      }
     });
+    
+    openMap = function(lat, lon) {
+      var url = "https://www.google.com/maps/embed/v1/place?q="+lat+","+lon+"&zoom=16&maptype=satellite&key={{ cfg['maps_api_key'] }}";
+      $('#map').attr('src', url);
+      $('html,body').animate({scrollTop: $('#map').offset().top},'slow');
+    }
   </script>
 {% endblock %}
